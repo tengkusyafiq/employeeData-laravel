@@ -1,6 +1,5 @@
 <?php
 
-use App\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +27,4 @@ Route::get('/staticemployee', function () {
 });
 
 // get one employee data by id.
-Route::get('/employee/{employee}', function (Employee $employee) {
-    return $employee;
-});
+Route::get('/employee/{employee}', 'EmployeeController@show');

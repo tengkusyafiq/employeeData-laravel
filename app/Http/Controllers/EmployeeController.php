@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Http\Resources\EmployeeResource;
 
 class EmployeeController extends Controller
 {
-    public function show(Employee $employee)
+    /**
+     * Undocumented function.
+     */
+    public function show(Employee $employee): EmployeeResource
     {
-        return $employee;
+        return new EmployeeResource($employee);
     }
 }

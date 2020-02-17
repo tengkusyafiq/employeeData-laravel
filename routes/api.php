@@ -26,5 +26,5 @@ Route::get('/staticemployee', function () {
     ];
 });
 
-// get one employee data by id.
-Route::get('/employee/{employee}', 'EmployeeController@show');
+// get employee data, use apiResource to make it restful
+Route::apiResource('/employee', 'EmployeeController');

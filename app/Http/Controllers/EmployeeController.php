@@ -33,4 +33,11 @@ class EmployeeController extends Controller
 
         return new EmployeeResource($employee);
     }
+
+    public function update(Employee $employee, Request $request): EmployeeResource
+    {
+        $employee->update($request->all());
+
+        return new EmployeeResource($employee);
+    }
 }

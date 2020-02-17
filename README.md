@@ -10,7 +10,7 @@
 
 3. Open phpmyadmin and create a database named `employeedata`
 
-4. Duplicate .env.example and edit some lines as below:
+4. Duplicate `.env.example`, name it as `.env` and edit some lines as below:
 	```
 	DB_CONNECTION=mysql
 	DB_HOST=127.0.0.1

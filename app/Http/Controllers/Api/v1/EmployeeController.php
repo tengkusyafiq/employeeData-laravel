@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Employee;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\EmployeeResourceCollection;
 use Illuminate\Http\Request;

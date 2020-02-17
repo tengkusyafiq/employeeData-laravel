@@ -18,13 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// test static employee
-Route::get('/staticemployee', function () {
-    return [
-        'first_name' => 'John',
-        'last_name' => 'Wick',
-    ];
+Route::prefix('v1')->group(function () {
+    // get employee data, use apiResource to make it restful
+    Route::apiResource('employee', 'Api\v1\EmployeeController');
 });
-
-// get employee data, use apiResource to make it restful
-Route::apiResource('/employee', 'EmployeeController');

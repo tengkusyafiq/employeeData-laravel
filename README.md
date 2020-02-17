@@ -32,6 +32,8 @@
 	php artisan serve
 	```
 
+## Understanding the code
+You can go through each of the commit changes visually using GitLens in VS Code.
   
 
 ## API Testing

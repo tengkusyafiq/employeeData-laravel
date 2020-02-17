@@ -16,10 +16,28 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
         ]);
 
+        $validatedData['password'] = bcrypt($request->password); // encrypt the password to keep in the db
+
         $user = User::create($validatedData);
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
         return response(['user' => $user, 'access_token' => $accessToken]);
+    }
+
+    public function login(Request $request)
+    {
+        $loginData = $request->validate([
+            'email' => 'email|required',
+            'password' => 'required',
+        ]);
+
+        if (!auth()->attempt($loginData)) {
+            return response(['message' => 'Wrong password!']);
+        }
+
+        $accessToken = auth()->user()->createToken('authToken')->accessToken;
+
+        return response(['user' => auth()->user(), 'access_token' => $accessToken]);
     }
 }

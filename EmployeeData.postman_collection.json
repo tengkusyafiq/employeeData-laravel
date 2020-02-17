@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "5c7fa997-69a8-4956-8798-33a76da3d7bc",
+		"name": "EmployeeData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register a HR account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "delilah@hr.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "delilah",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "delilah",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "delilah",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a new user account to access employee data."
+			},
+			"response": []
+		},
+		{
+			"name": "login a HR account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "delilah@hr.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "delilah",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "delilah",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "delila",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Login as a HR user."
+			},
+			"response": []
+		},
+		{
+			"name": "GET all HR accounts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all HR accounts info."
+			},
+			"response": []
+		},
+		{
+			"name": "GET all employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						""
+					]
+				},
+				"description": "Show the index of all employees with paginated feature."
+			},
+			"response": []
+		},
+		{
+			"name": "GET all employees by page",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee?page=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Next page of employees index."
+			},
+			"response": []
+		},
+		{
+			"name": "GET employee by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"2",
+						""
+					]
+				},
+				"description": "show info of a specific employee with an id."
+			},
+			"response": []
+		},
+		{
+			"name": "POST a new employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "tengku",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "syafiq",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "tengku.mohd.syafiq@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0148003660",
+							"type": "text"
+						},
+						{
+							"key": "kpi",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "POST a new employee info."
+			},
+			"response": []
+		},
+		{
+			"name": "Update new info of an employee, such as KPI",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"kpi\":\"66.00\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Update new info of an employee, such as KPI"
+			},
+			"response": []
+		},
+		{
+			"name": "DEL an employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTc4Y2M3NzI2MjQ4NjRhYzQ1MGM5NjljNzQ0MzRlY2RlMzkxMzFhYWYzMzNkYThlNTkyMjBiY2IyNDI1YTVjYmFkMjZkMGJhZDc1YzAxYTIiLCJpYXQiOjE1ODE5NTMwMDIsIm5iZiI6MTU4MTk1MzAwMiwiZXhwIjoxNjEzNTc1NDAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QoQB3RT4tWlqFjfpo_IrQzGHfC4ml-c59NwrtUr5Vq9LavsRqwFM-2s0fA4BAx8gRqU1OBSSNboV1ddfaMDLfk4sTUJ-Bn6r65FOCnGnxbdwFwROKNEL76aW_tE91Zc_B0cPwuoJDhJleA6OOYEcVq37MrIyUCKPBd2Nx2ORA-n6rsSteqF8wRA__hpVmifBSshFk1iNn5TSQMWIjwBPtBNDSF2LrS9B7RoEle-w1_9mOZjhdr4KTFCn_Q6G-hAbhkR2g1q4GCD-vZA1_vKmwu_9D607GIOjp06XwnwhWplEWD4kNS8sM7dgUV4mpgEuvWpzoqCcLqx56WFYjTq66dVQFV1s5qFsdOcDjiqLRPo77FnF_qIsHKrfqo6n_0JZaiMq6CcomD_EOm_fcQc5Hb8GBn6tYGk3Rx7FaZmz0R01FLWKw7vyG8A0BHpjE5e70-dAHqfxfUYXb9o9D4h7NH34UiErc2HBG3zTV9Z_jBKJtwt2L5M6VY1KL0hsDALMi42qau_AcUXCs3wLu3K0A9n_kuQeKHALHUq7zhW4ozpeOJ3HlO_WVJVtzUwJ-vhwd6jCcoHHFVeNhckmmIirs577g_MoSpRT3X7YIYkVfnuWdM_ON4ZqgPSOW4Pab6fIqHy6HNfIgtc7UMijDqKcf7jSe_8VSFODMeE0GUqo2sk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "tengku",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "syafiq",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "tengku.mohd.syafiq@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "0148003660",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "kpi",
+							"value": "77.00",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/employee/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"2",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "delete an employee."
+			},
+			"response": []
+		}
+	]
+}

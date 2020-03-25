@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Employee;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateEmployeeRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\EmployeeResourceCollection;
 use Illuminate\Http\Request;
@@ -20,16 +21,8 @@ class EmployeeController extends Controller
         return new EmployeeResourceCollection(Employee::paginate());
     }
 
-    public function store(Request $request)
+    public function store(CreateEmployeeRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'kpi' => 'required',
-        ]);
-
         $employee = Employee::create($request->all());
 
         return new EmployeeResource($employee);

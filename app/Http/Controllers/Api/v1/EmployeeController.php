@@ -37,10 +37,8 @@ class EmployeeController extends Controller
 
     public function destroy(Employee $employee)
     {
-        $employee->delete();
+        $result = $employee->delete();
 
-        $data = ['message' => 'Employee has been deleted.'];
-
-        return response()->json($data, 200);
+        return response()->json([], 204);
     }
 }

@@ -20,3 +20,7 @@ https://www.youtube.com/watch?v=KWnmOBkHzUo
 
 ## csv import user
 https://www.youtube.com/channel/UC4gijXR8cM4gmEt9Olse-TQ/search?query=inferno+%2315
+
+
+## how to handle exception eg: 404 etc
+https://www.youtube.com/watch?v=_mdZxG6ExbE

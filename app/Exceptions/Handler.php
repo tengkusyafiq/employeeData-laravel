@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
             // handle 404, model not found. eg: employee not found
             if ($exception instanceof ModelNotFoundException) {
                 return response()->json([
-                    'error' => 'Model not found',
+                    'error' => 'Item not found',
                     // 'error' => $exception->getMessage(),
                 ], Response::HTTP_NOT_FOUND);
             }

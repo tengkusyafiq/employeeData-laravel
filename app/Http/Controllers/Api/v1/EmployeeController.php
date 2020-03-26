@@ -26,23 +26,37 @@ class EmployeeController extends Controller
     public function store(CreateEmployeeRequest $request)
     {
         $employee = Employee::create($request->all());
+        $response = new EmployeeResource($employee);
+        if ($employee) {
+            // return response()->json($response, 200); //error
+            return $response;
+        }
 
-        return new EmployeeResource($employee);
+        return response()->json(['message' => 'Employee cannot be updated.'], 500);
     }
 
     public function update(Employee $employee, Request $request): EmployeeResource
     {
-        $employee->update($request->all());
+        $result = $employee->update($request->all());
+        $response = new EmployeeResource($employee);
+        if ($result) {
+            // return response()->json($response, 200); //error
+            return $response;
+        }
 
-        return new EmployeeResource($employee);
+        return response()->json(['message' => 'Employee cannot be updated.'], 400);
     }
 
     public function destroy(Employee $employee)
     {
         $result = $employee->delete();
 
-        return response()->json([], 204);
-        // return response()->json($employee['email']);
+        if ($result) {
+            // still return empty json since we're returning 204(empty)
+            return response()->json(['message' => 'Delete successful.'], 204);
+        }
+
+        return response()->json(['message' => 'Delete failed.'], 500);
     }
 
     public function import(Request $request)

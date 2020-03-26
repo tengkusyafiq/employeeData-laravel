@@ -24,4 +24,5 @@ Route::post('/login', 'Api\AuthController@login');
 Route::prefix('v1')->name('v1.')->group(function () {
     // get employee data, use apiResource to make it restful
     Route::apiResource('employee', 'Api\v1\EmployeeController')->middleware('auth:api');
+    Route::post('employee/import', 'Api\v1\EmployeeController@import')->name('employee.import')->middleware('auth:api');
 });

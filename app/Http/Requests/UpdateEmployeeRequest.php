@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Employee;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateEmployeeRequest extends FormRequest
+class UpdateEmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class CreateEmployeeRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // true means user needs to login/token
+        return true;
     }
 
     /**
@@ -24,6 +24,6 @@ class CreateEmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        return Employee::createRules();
+        return Employee::updateRules();
     }
 }

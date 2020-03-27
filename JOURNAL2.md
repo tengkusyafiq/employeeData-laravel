@@ -41,17 +41,7 @@ https://docs.laravel-excel.com/3.1/imports/
 _KIV_ See example of import file here:
 https://www.w3adda.com/blog/laravel-6-import-excel-csv-file-database-using-maatwebsite
 basically fill in the column here.
-```php
-        return new Employee([
-            // assign the column name you want to get in Excel
-            'first_name' => @$row[1], //second column
-            'last_name' => @$row[2],
-            'phone' => @$row[3],
-            'email' => @$row[4],
-            'kpi' => @$row[5],
-            'action' => @$row[6],
-        ]);
-```
+
 
 Add the route api for import:
 ```php
@@ -65,3 +55,36 @@ Route::prefix('v1')->name('v1.')->group(function () {
 Make the `import()` method in the controller:
 https://www.webslesson.info/2019/02/import-excel-file-in-laravel.html
 
+## better approach to make validation flexible to be used multiple times
+put validation rule in model.
+https://medium.com/@konafets/a-better-place-for-your-validation-rules-in-laravel-f5e3f5b7cc
+
+then validate something(input or array) using:
+https://stackoverflow.com/questions/42258185/how-to-validate-array-in-laravel
+```php
+$validator = Validator::make($input, $rules);
+
+//Now check validation:
+if ($validator->fails()) 
+{ 
+  /* do something */ 
+}
+```
+or in laravel docs
+https://laravel.com/docs/5.8/validation
+```php
+use Illuminate\Support\Facades\Validator;
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('post/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        // Store the blog post...
+```

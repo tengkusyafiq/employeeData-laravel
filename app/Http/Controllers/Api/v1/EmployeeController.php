@@ -20,9 +20,20 @@ class EmployeeController extends Controller
         return new EmployeeResource($employee);
     }
 
-    public function index(): EmployeeResourceCollection
+    public function index(Request $request): EmployeeResourceCollection
     {
-        return new EmployeeResourceCollection(Employee::paginate());
+        $employees = Employee::query();
+
+        if (!empty($request->search)) {
+            $s = $request->search;
+            $employees = Employee::where(function ($q) use ($s) {
+                $q->orWhere('first_name', 'like', "%{$s}%")
+                    ->orWhere('email', 'like', "%{$s}%")
+                ;
+            });
+        }
+
+        return new EmployeeResourceCollection($employees->paginate());
     }
 
     public function store(CreateEmployeeRequest $request)
@@ -37,8 +48,9 @@ class EmployeeController extends Controller
         return response()->json(['message' => 'Employee cannot be updated.'], 500);
     }
 
-    public function update(Employee $employee, UpdateEmployeeRequest $request): EmployeeResource
+    public function update(UpdateEmployeeRequest $request, Employee $employee): EmployeeResource
     {
+        dd($request->all());
         $result = $employee->update($request->all());
         $response = new EmployeeResource($employee);
         if ($result) {
@@ -64,8 +76,8 @@ class EmployeeController extends Controller
     public function import(Request $request)
     {
         $messages = [
-            'create_errors' => '',
-            'update_errors' => '',
+            'create_errors' => [],
+            'update_errors' => [],
         ]; // gather all errors to be reported
 
         $request->validate([
@@ -75,7 +87,7 @@ class EmployeeController extends Controller
         $employees = Excel::toArray(new EmployeesImport(), request()->file('import_file'));
 
         foreach ($employees as $array) { // since it has outer array
-            foreach ($array as $employee) {
+            foreach ($array as $key => $employee) {
                 $employeeData = [
                     'first_name' => $employee['first_name'],
                     'last_name' => $employee['last_name'],
@@ -89,7 +101,7 @@ class EmployeeController extends Controller
                         // validate before create, so same email cant be created again.
                         $validator = Validator::make($employeeData, Employee::createRules());
                         if ($validator->fails()) {
-                            $messages['create_errors'] .= join(['Cannot create user ', $employeeData['email'], '. ']);
+                            $messages['create_errors'][] = ['row' => 2 + $key, 'email' => $employeeData['email']];
                         } else {
                             Employee::create($employeeData);
                         }
@@ -101,14 +113,14 @@ class EmployeeController extends Controller
                         $validateEmail['email'] = 'required';
                         $validator = Validator::make($employeeData, $validateEmail);
                         if ($validator->fails()) {
-                            $messages['update_errors'] .= join(['Cannot update user ', $employeeData['email'], '. ']);
+                            $messages['update_errors'][] = 'Cannot update user '.$employeeData['email'].'. ';
                         } else {
                             // tell users if the employee to update, doesn't exists in our db.
                             if (Employee::where('email', '=', $employee['email'])->exists()) {
                                 // update employee data
                                 Employee::where('email', $employee['email'])->update($employeeData);
                             } else {
-                                $messages['update_errors'] .= join(['User ', $employeeData['email'], 'does not exists in our database. ']);
+                                $messages['update_errors'][] = 'User '.$employeeData['email'].'does not exists in our database. ';
                             }
                         }
 
